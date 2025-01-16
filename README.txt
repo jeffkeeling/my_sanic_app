@@ -1,18 +1,13 @@
 
 # Python
-Python version: 3.11 used to get SQLalchemy working
-Venv:  ~/Documents/dev/Environments/sanic311
-source  ~/Documents/dev/Environments/sanic311/bin/activate 
+# Python version: 3.11 used to get SQLalchemy working
 # Run the server
 python server.py
 
 
 # Next
-# Build the Next.js app
-cd frontend/next
-npm run build
-# Start the production server
-npm start
+# from frontend/next directory
+
 
 # Adding new ShadCN components
 npx shadcn@latest init

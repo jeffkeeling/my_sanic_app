@@ -1,5 +1,6 @@
 .DS_Store
-/data
+.env
+*.db
 backend/migrations/versions/
 frontend/hono/
 frontend/vue/

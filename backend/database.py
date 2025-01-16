@@ -3,18 +3,28 @@ import os
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, declarative_base
 import logging
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Get the absolute path to your project's data directory
+# Get the absolute path to your project's root directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATABASE_PATH = os.path.join(BASE_DIR, 'data', 'users.db')
-DATABASE_URL = f"sqlite+aiosqlite:///{DATABASE_PATH}"
+
+# Get database configuration from environment variables
+DATABASE_DIR = os.path.join(BASE_DIR, os.getenv('DATABASE_DIR', 'data'))
+DATABASE_NAME = os.getenv('DATABASE_NAME', 'users.db')
+DATABASE_PATH = os.path.join(DATABASE_DIR, DATABASE_NAME)
 
 # Ensure data directory exists
-os.makedirs(os.path.dirname(DATABASE_PATH), exist_ok=True)
+os.makedirs(DATABASE_DIR, exist_ok=True)
+
+# Construct database URL
+DATABASE_URL = f"sqlite+aiosqlite:///{DATABASE_PATH}"
 
 logger.info(f"Database path: {DATABASE_PATH}")
 logger.info(f"Database URL: {DATABASE_URL}")
