@@ -1,0 +1,7 @@
+.DS_Store
+/data
+backend/migrations/versions/
+frontend/hono/
+frontend/vue/
+frontend/sveltekit/
+__pycache__
