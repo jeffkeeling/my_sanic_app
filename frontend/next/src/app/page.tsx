@@ -1,11 +1,11 @@
 'use client'
 
-import CreateItinerary from '@/components/CreateItinerary'
+import ItineraryInterface from '@/components/ItineraryInterface'
 
 export default function Home() {
   return (
     <main className="min-h-screen p-8">
-      <CreateItinerary />
+      <ItineraryInterface />
     </main>
   )
 }

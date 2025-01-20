@@ -2,7 +2,7 @@
 from sanic import Blueprint, json
 from sqlalchemy.future import select
 from database import get_session
-from api.models.user import User
+from api.models.models import User
 import logging
 
 logger = logging.getLogger(__name__)
